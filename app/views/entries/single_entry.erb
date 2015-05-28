@@ -1,0 +1,19 @@
+<h1><%=@entry.content%></h1>
+<a href="/entries/<%=@entry.id%>/edit">Edit this entry</a>
+<form method="post" action="/entries/<%=@entry.id%>">
+  <input type="hidden" name="_method" value="DELETE"/>
+  <input type="submit" value="DELETE" />
+</form>
+<h3>Tags</h3>
+<ul id="tags_list">
+  <%@tags.each do |tag|%>
+  <li><a href="/entries/<%=@entry.id%>/tags/<%=tag.id%>"><%=tag.description%></a></li>
+  <%end%>
+</ul>
+
+<form class="create_tag_form" method="post" action="/entries/<%=@entry.id%>/tags">
+  <textarea class="tag_text_area" name="tag[description]" value="Entry a new tag here"></textarea>
+  <br><br><input type="submit" value="create new tag">
+</form><br>
+
+<a href="/entries">Back to all entries</a>

@@ -1,0 +1,15 @@
+<h1>All Entries</h1>
+
+<table id= "all_entries">
+<%@entries.each do |entry|%>
+    <tr id="<%=entry.id%>">
+    <td><a href="/entries/<%=entry.id%>"><%=entry.content%></a></td>
+    <td><a href="/entries/<%=entry.id%>/edit">Edit this entry</a><td>
+    <td><a class="quick_entry_delete" href="/entries/<%=entry.id%>">Delete this entry</a></td></tr>
+<%end%>
+</table>
+
+<form class="entry_creation_form" method="post" action="/entries">
+<textarea class="entry_text_area" name="entry[content]" value="Fill in your post"></textarea>
+<br><input type="submit" value="create new entry">
+</form>

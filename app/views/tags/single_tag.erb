@@ -1,0 +1,4 @@
+<h1><%=@tag.description%></h1>
+<form method="post" action="/entries/<%=@entry.id%>/tags/<%=@tag.id%>">
+<input type="hidden" name="_method" value="DELETE"/>
+<input type="submit" value="DELETE" />
